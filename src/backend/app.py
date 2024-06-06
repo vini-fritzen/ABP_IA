@@ -5,7 +5,11 @@ import joblib
 app = Flask(__name__)
 
 # Carregar o modelo treinado
-model = joblib.load('model.pkl')
+model = joblib.load(r'C:\Git\2024\ABP_IA\src\backend\model.pkl')
+
+@app.route('/')
+def index():
+    return('test')
 
 @app.route('/predict', methods=['POST'])
 def predict():
