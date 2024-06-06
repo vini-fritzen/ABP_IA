@@ -16,13 +16,23 @@ const HomeScreen = () => {
 
     const onSubmit = async (data: any) => {
         try {
+            // Converte os valores dos campos para números inteiros
+            const requestData = {
+                radius_mean: parseInt(data.radius_mean),
+                texture_mean: parseInt(data.texture_mean),
+                perimeter_mean: parseInt(data.perimeter_mean),
+                area_mean: parseInt(data.area_mean),
+                smoothness_mean: parseInt(data.smoothness_mean),
+            };
+    
             const response = await fetch('http://127.0.0.1:5000/predict', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({data}),
+                body: JSON.stringify(requestData),
             });
+    
             if (response.ok) {
                 const responseData = await response.json();
                 setPrediction(responseData.prediction);
@@ -33,6 +43,8 @@ const HomeScreen = () => {
             console.error('Erro ao enviar dados:', error);
         }
     };
+    
+
 
     return (
         <View style={styles.container}>
