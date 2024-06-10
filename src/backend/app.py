@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Importe o módulo CORS
 import numpy as np
 import joblib
 
 app = Flask(__name__)
+CORS(app)
 
 # Carregar o modelo treinado
 model = joblib.load(r'C:\Git\2024\ABP_IA\src\backend\model.pkl')

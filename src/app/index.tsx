@@ -51,6 +51,7 @@ const HomeScreen = () => {
             <Text style={styles.title}>Predição de Câncer de Mama</Text>
 
             {/* Radius Mean */}
+            <Text>Raio Médio</Text>
             <Controller
                 control={control}
                 render={({ field }) => (
@@ -69,6 +70,7 @@ const HomeScreen = () => {
             {errors.radius_mean && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
 
             {/* Texture Mean */}
+            <Text>Textura Média</Text>
             <Controller
                 control={control}
                 render={({ field }) => (
@@ -87,6 +89,7 @@ const HomeScreen = () => {
             {errors.texture_mean && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
 
             {/* Perimeter Mean */}
+            <Text>Perímetro Médio</Text>
             <Controller
                 control={control}
                 render={({ field }) => (
@@ -105,6 +108,7 @@ const HomeScreen = () => {
             {errors.perimeter_mean && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
 
             {/* Area Mean */}
+            <Text>Área Média</Text>
             <Controller
                 control={control}
                 render={({ field }) => (
@@ -123,6 +127,7 @@ const HomeScreen = () => {
             {errors.area_mean && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
 
             {/* Smoothness Mean */}
+            <Text>Suavidade Média</Text>
             <Controller
                 control={control}
                 render={({ field }) => (
