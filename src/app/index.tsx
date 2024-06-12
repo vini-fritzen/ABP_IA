@@ -5,24 +5,24 @@ import { useForm, Controller } from 'react-hook-form';
 const HomeScreen = () => {
     const { control, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
-            radius_mean: '',
-            texture_mean: '',
+            concave_points_worst: '',
+            perimeter_worst: '',
+            concave_points_mean: '',
+            radius_worst: '',
             perimeter_mean: '',
-            area_mean: '',
-            smoothness_mean: '',
         },
     });
     const [prediction, setPrediction] = useState<number | null>(null);
 
     const onSubmit = async (data: any) => {
         try {
-            // Converte os valores dos campos para números inteiros
+            // Converte os valores dos campos do formulário para números antes de enviar
             const requestData = {
-                radius_mean: parseInt(data.radius_mean),
-                texture_mean: parseInt(data.texture_mean),
-                perimeter_mean: parseInt(data.perimeter_mean),
-                area_mean: parseInt(data.area_mean),
-                smoothness_mean: parseInt(data.smoothness_mean),
+                concave_points_worst: parseFloat(data.concave_points_worst),
+                perimeter_worst: parseFloat(data.perimeter_worst),
+                concave_points_mean: parseFloat(data.concave_points_mean),
+                radius_worst: parseFloat(data.radius_worst),
+                perimeter_mean: parseFloat(data.perimeter_mean),
             };
     
             const response = await fetch('http://127.0.0.1:5000/predict', {
@@ -44,6 +44,7 @@ const HomeScreen = () => {
         }
     };
     
+    
 
 
     return (
@@ -64,10 +65,10 @@ const HomeScreen = () => {
                         inputMode="numeric"
                     />
                 )}
-                name="radius_mean"
+                name="concave_points_worst"
                 rules={{ required: true, pattern: /^[0-9]+([,.][0-9]+)?$/ }}
             />
-            {errors.radius_mean && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
+            {errors.concave_points_worst && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
 
             {/* Texture Mean */}
             <Text>Textura Média</Text>
@@ -83,10 +84,10 @@ const HomeScreen = () => {
                         inputMode="numeric"
                     />
                 )}
-                name="texture_mean"
+                name="perimeter_worst"
                 rules={{ required: true, pattern: /^[0-9]+([,.][0-9]+)?$/ }}
             />
-            {errors.texture_mean && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
+            {errors.perimeter_worst && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
 
             {/* Perimeter Mean */}
             <Text>Perímetro Médio</Text>
@@ -102,10 +103,10 @@ const HomeScreen = () => {
                         inputMode="numeric"
                     />
                 )}
-                name="perimeter_mean"
+                name="concave_points_mean"
                 rules={{ required: true, pattern: /^[0-9]+([,.][0-9]+)?$/ }}
             />
-            {errors.perimeter_mean && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
+            {errors.concave_points_mean && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
 
             {/* Area Mean */}
             <Text>Área Média</Text>
@@ -121,10 +122,10 @@ const HomeScreen = () => {
                         inputMode="numeric"
                     />
                 )}
-                name="area_mean"
+                name="radius_worst"
                 rules={{ required: true, pattern: /^[0-9]+([,.][0-9]+)?$/ }}
             />
-            {errors.area_mean && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
+            {errors.radius_worst && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
 
             {/* Smoothness Mean */}
             <Text>Suavidade Média</Text>
@@ -140,10 +141,10 @@ const HomeScreen = () => {
                         inputMode="numeric"
                     />
                 )}
-                name="smoothness_mean"
+                name="perimeter_mean"
                 rules={{ required: true, pattern: /^[0-9]+([,.][0-9]+)?$/ }}
             />
-            {errors.smoothness_mean && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
+            {errors.perimeter_mean && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
 
             <Pressable style={styles.button} onPress={handleSubmit(onSubmit)}>
                 <Text style={styles.buttonText}>Enviar</Text>
