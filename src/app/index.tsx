@@ -52,13 +52,13 @@ const HomeScreen = () => {
             <Text style={styles.title}>Predição de Câncer de Mama</Text>
 
             {/* Radius Mean */}
-            <Text>Raio Médio</Text>
+            <Text>Pontos Côncavos Pior</Text>
             <Controller
                 control={control}
                 render={({ field }) => (
                     <TextInput
                         style={styles.input}
-                        placeholder="Raio Médio"
+                        placeholder="Pontos Côncavos Pior"
                         onChangeText={field.onChange}
                         value={field.value}
                         keyboardType="numeric"
@@ -71,13 +71,13 @@ const HomeScreen = () => {
             {errors.concave_points_worst && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
 
             {/* Texture Mean */}
-            <Text>Textura Média</Text>
+            <Text>Perímetro Pior</Text>
             <Controller
                 control={control}
                 render={({ field }) => (
                     <TextInput
                         style={styles.input}
-                        placeholder="Textura Média"
+                        placeholder="Perímetro Pior"
                         onChangeText={field.onChange}
                         value={field.value}
                         keyboardType="numeric"
@@ -90,13 +90,13 @@ const HomeScreen = () => {
             {errors.perimeter_worst && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
 
             {/* Perimeter Mean */}
-            <Text>Perímetro Médio</Text>
+            <Text>Pontos Côncavos Médio</Text>
             <Controller
                 control={control}
                 render={({ field }) => (
                     <TextInput
                         style={styles.input}
-                        placeholder="Perímetro Médio"
+                        placeholder="Pontos Côncavos Medio"
                         onChangeText={field.onChange}
                         value={field.value}
                         keyboardType="numeric"
@@ -109,13 +109,13 @@ const HomeScreen = () => {
             {errors.concave_points_mean && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
 
             {/* Area Mean */}
-            <Text>Área Média</Text>
+            <Text>Raio Pior</Text>
             <Controller
                 control={control}
                 render={({ field }) => (
                     <TextInput
                         style={styles.input}
-                        placeholder="Área Média"
+                        placeholder="Raio Pior"
                         onChangeText={field.onChange}
                         value={field.value}
                         keyboardType="numeric"
@@ -128,13 +128,13 @@ const HomeScreen = () => {
             {errors.radius_worst && <Text style={styles.error}>Este campo é obrigatório e deve ser numérico.</Text>}
 
             {/* Smoothness Mean */}
-            <Text>Suavidade Média</Text>
+            <Text>Perímetro Médio</Text>
             <Controller
                 control={control}
                 render={({ field }) => (
                     <TextInput
                         style={styles.input}
-                        placeholder="Suavidade Média"
+                        placeholder="Perímetro Médio"
                         onChangeText={field.onChange}
                         value={field.value}
                         keyboardType="numeric"
